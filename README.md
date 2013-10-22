@@ -20,7 +20,7 @@ Parse a string and color porter will return an RGB or Hex object if a match is f
 
 ```ruby
 ColorPorter.parse('#ccc') # => #<ColorPorter::Hex @code="cccccc">
-ColorPorter.parse('rgb(204,204,204)')#  => #<ColorPorter::RGB @blue=204, @green=204, @red=204>
+ColorPorter.parse('rgb(204,204,204)') #  => #<ColorPorter::RGB @blue=204, @green=204, @red=204>
 ```
 
 Do conversions between RGB and Hex
@@ -40,7 +40,7 @@ Grab the luminosity (brightness) of a RGB or Hex value.
 hex = ColorPorter::Hex.new('cccccc')
 hex.luminosity # => 13421772
 
-rgb = ColorPorter::Rgb.new(204,204,204)
+rgb = ColorPorter::RGB.new(204,204,204)
 rgb.luminosity # => 13421772
 ```
 
