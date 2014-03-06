@@ -1,5 +1,5 @@
 module ColorPorter
-  class RGB
+  class Color
     attr_accessor :red, :green, :blue
 
     def initialize(red, green, blue)
@@ -9,20 +9,17 @@ module ColorPorter
       @blue = 0 unless (0..255).include?(@blue)
     end
 
-    def valid?
-      (0..255).include?(@red) && (0..255).include?(@green) && (0..255).include?(@blue)
+    def id
+      to_hex.hex
     end
 
-    def luminosity
-      to_hex.luminosity
+    def luma
+      ((0.2126 * red) + (0.7152 * green) + (0.0722 * blue)).round
     end
+    alias :luminosity :luma
 
     def to_s
       "rgb(#{@red},#{@green},#{@blue})"
-    end
-
-    def to_rgb
-      return self
     end
 
     def to_hex
@@ -40,7 +37,7 @@ module ColorPorter
         b = "0" + b
       end
 
-      return Hex.new("##{r}#{g}#{b}")      
+      r + g + b
     end
   end
 end
